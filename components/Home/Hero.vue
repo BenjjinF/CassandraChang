@@ -109,9 +109,7 @@
         animation: pulse 5s infinite;
         color: white;
         position: absolute;
-        top: 95%;
-        // margin-left: auto; 
-        // margin-right: auto;
+        bottom: $spacer/2;
         text-align: center;
         left: 0; 
         right: 0;
