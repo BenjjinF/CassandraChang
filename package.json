@@ -22,7 +22,7 @@
     "firebase-functions": "^2.0.2",
     "marked": "^0.4.0",
     "nuxt": "^1.0.0",
-    "storyblok-nuxt": "0.0.3",
+    "storyblok-nuxt": "0.0.6",
     "vue-moment": "^4.0.0",
     "vue2-google-maps": "^0.9.7"
   },
