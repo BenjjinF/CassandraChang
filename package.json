@@ -1,0 +1,42 @@
+{
+  "name": "cassandra_chang",
+  "version": "1.0.0",
+  "description": "A Real Estate Website",
+  "author": "Benjamin Frost",
+  "private": true,
+  "scripts": {
+    "dev": "nuxt",
+    "build": "nuxt build",
+    "start": "nuxt start",
+    "generate": "nuxt generate",
+    "lint": "eslint --ext .js,.vue --ignore-path .gitignore .",
+    "precommit": "npm run lint"
+  },
+  "dependencies": {
+    "@nuxtjs/axios": "^5.0.0",
+    "@nuxtjs/pwa": "^2.0.8",
+    "ajv": "^6.5.2",
+    "bootstrap-vue": "^2.0.0-rc.11",
+    "firebase": "^5.1.0",
+    "firebase-admin": "5.13.1",
+    "firebase-functions": "^2.0.2",
+    "marked": "^0.4.0",
+    "nuxt": "^1.0.0",
+    "storyblok-nuxt": "0.0.3",
+    "vue-moment": "^4.0.0",
+    "vue2-google-maps": "^0.9.7"
+  },
+  "devDependencies": {
+    "babel-eslint": "^8.2.1",
+    "babel-polyfill": "^6.26.0",
+    "bootstrap": "^4.1.1",
+    "eslint": "^4.15.0",
+    "eslint-friendly-formatter": "^3.0.0",
+    "eslint-loader": "^1.7.1",
+    "eslint-plugin-vue": "^4.0.0",
+    "jquery": "^3.3.1",
+    "node-sass": "^4.9.0",
+    "nuxt-sass-resources-loader": "^2.0.2",
+    "sass-loader": "^7.0.3"
+  }
+}

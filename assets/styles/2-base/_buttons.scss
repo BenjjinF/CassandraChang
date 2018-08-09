@@ -1,0 +1,9 @@
+.btn.btn-secondary, .btn.btn-secondary:hover {
+  color: white;
+}
+
+.btn.btn-outline-secondary {
+  &:hover {
+    color: white;
+  }
+}
