@@ -4,9 +4,9 @@
 <script>
   export default {
     props: ['portrait'],
-    data() {
-      return {
-        style: {
+    computed: {
+      style() {
+        return {
           backgroundImage: 'url(' + this.resizeImage(this.portrait, '350x0') + ')'
         } 
       }
@@ -18,6 +18,7 @@
     height: $spacer * 15;
     background-size: cover;
     background-position: top;
+    background-color: $gray-300;
     @include media-breakpoint-down(sm) {
       margin-bottom: $spacer;
     }

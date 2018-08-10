@@ -10,7 +10,7 @@
       </div>
       <div class="row">
         <div class="col-md-4 col-lg-3">
-          <Portrait v-if="about.portrait" :portrait="about.portrait"></Portrait>
+          <Portrait :portrait="about.portrait"></Portrait>
         </div>
         <div class="col-md-7 col-lg-9">
           <!-- <div v-if="about.body" v-html="marked(about.body)"></div> -->

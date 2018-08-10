@@ -11,7 +11,9 @@ Vue.mixin({
       if (image) {
         var imageService = '//img2.storyblok.com/'
         var path = image.replace('//a.storyblok.com', '')
-        return imageService + option + path
+        var url = imageService + option + path
+        console.log(url)
+        return url
       }
     },
     numberWithCommas: (value) => {

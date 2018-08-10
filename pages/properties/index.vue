@@ -8,7 +8,7 @@
           <b-card-group columns>
             <propertyPreview 
               v-for="property in properties"
-              v-if="!property.sold && property.houseNumber"
+              v-if="!property.sold && property.houseNumber || !property.id"
               :property="property"
               :lazy="false"
               :key="property.id"
@@ -23,7 +23,7 @@
           <b-card-group columns>
             <propertyPreview 
               v-for="property in properties"
-              v-if="property.sold"
+              v-if="property.sold || !property.id"
               :property="property"
               :lazy="false"
               :key="property.id"
@@ -44,7 +44,7 @@
     },
     beforeCreate() {
       let propertiesData = this.$store.state.pages.properties.data
-      if (!propertiesData.length) {
+      if (!propertiesData[0].id) {
         this.$storyapi.get(
           'cdn/stories', {
             version: process.env.NODE_ENV == 'production' ? 'published' : 'draft',

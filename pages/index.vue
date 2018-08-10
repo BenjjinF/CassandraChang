@@ -5,7 +5,7 @@
     <div class="container">
       <div class="row pt-2 pt-sm-3 pt-md-4 pt-lg-5">
         <div class="col-md-6 col-lg-4">
-          <Portrait v-if="home.portrait" :portrait="home.portrait"></Portrait>
+          <Portrait :portrait="home.portrait"></Portrait>
         </div>
         <div class="col-md-6 col-lg-8">
           <Quote :quote="home.quote"></Quote>
@@ -27,7 +27,6 @@
           </b-card-group>
         </div>
       </div>
-      
       <div class="row pt-2 pt-sm-3 pt-md-4 pt-lg-5">
         <div class="col">
           <h2 class="text-center">Blog</h2>
@@ -66,25 +65,14 @@ export default {
       return this.$store.state.pages.home.data
     },
     properties() {
-      let properties = this.$store.state.pages.properties.data
-      return [
-        properties['0'],
-        properties['1'],
-        properties['2'],
-      ]
+      return this.$store.state.pages.properties.data.slice(0,3)
     },
     blogs() {
-      let blogs = this.$store.state.pages.blog.data
-      return [
-        blogs['0'],
-        blogs['1'],
-        blogs['2'],
-      ]
-
+      return this.$store.state.pages.blog.data.slice(0,3)
     }
   },
   methods: {
-     async getHomeData() {
+    async getHomeData() {
       const {data}  = await this.$storyapi.get(
         'cdn/stories/home', {
           version: process.env.NODE_ENV == 'production' ? 'published' : 'draft',
@@ -152,13 +140,6 @@ export default {
     this.$store.state.pages.home.data = await this.getHomeData()
     this.$store.state.pages.properties.data = await this.getPropertiesData()
     this.$store.state.pages.blog.data = await this.getBlogData()
-
-
-
-
-
-
-
   },
   components: {
     Hero,

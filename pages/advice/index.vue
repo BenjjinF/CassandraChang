@@ -20,7 +20,7 @@
           <b-card-group columns>
               <advicePreview
                 v-for="advice in advices"
-                v-if="advice.category.includes(filter)"
+                v-if="!advice.id || advice.category.includes(filter)"
                 :key="advice.id"
                 :advice="advice"
                 :lazy="false">
@@ -46,7 +46,8 @@
     },
     beforeCreate() {
       let adviceData = this.$store.state.pages.advice.data
-      if (!adviceData.length) {
+
+      if (!adviceData[0].id) {
         this.$storyapi.get(
           'cdn/stories', {
             version: process.env.NODE_ENV == 'production' ? 'published' : 'draft',

@@ -7,8 +7,8 @@
   }
 }
 
+
 .card.cc-preview {
-  cursor: pointer;
   transition: 1s;
   * {
     transition: 1s;
@@ -32,27 +32,30 @@
       }
     }
   }
-  
-  &:hover {
-    border-color: $link-color;
-    .card-body {
-      h4 {
-        color: $link-color;
-      }
-      p.card-text {
-        color: $link-hover-color;
-        &.text-muted {
-          color: $link-color !important;
+  &:not(.placeholder) {
+    cursor: pointer;
+
+    &:hover {
+      border-color: $link-color;
+      .card-body {
+        h4 {
+          color: $link-color;
+        }
+        p.card-text {
+          color: $link-hover-color;
+          &.text-muted {
+            color: $link-color !important;
+          }
+        }
+        .badge {
+          background-color: $link-hover-color;
         }
       }
-      .badge {
-        background-color: $link-hover-color;
-      }
-    }
-    .card-footer {
-      color: $link-color;
-      i {
-        color: $link-hover-color;
+      .card-footer {
+        color: $link-color;
+        i {
+          color: $link-hover-color;
+        }
       }
     }
   }

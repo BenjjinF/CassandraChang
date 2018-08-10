@@ -5,12 +5,12 @@
       :id="advice.id"
       :title="advice.title"
       class="cc-preview"
-      @click="$router.push(advice.id == 'cc-home-evaluation-card' ? 'homeEvaluation/' : 'advice/' + advice.id)"
+      @click="push"
+      :class="{placeholder: !advice.id}"
       >
-      <p class="card-text">
-        {{advice.previewText}}
+      <p class="card-text" v-html="previewText">
       </p>
-      <b-badge pill variant="secondary">{{advice.category}}</b-badge>
+      <b-badge pill variant="secondary" v-if="advice.category">{{advice.category}}</b-badge>
     </b-card>
 </template>
 <script>
@@ -24,9 +24,15 @@
     methods: {
       loaded() {
         this.imageLoaded = true
+      },
+      push() {
+        this.advice.id ?  this.$router.push(this.advice.id == 'cc-home-evaluation-card' ? 'homeEvaluation/' : 'advice/' + this.advice.id) : ''
       }
     },
     computed: {
+      previewText() {
+        return this.advice.id ? this.advice.previewText : `<i class="fa fa-spin fa-spinner" aria-hidden="true"></i>`
+      },
       image() {
         if (this.advice.image) {
           if (this.imageLoaded || !this.lazy) {

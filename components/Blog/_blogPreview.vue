@@ -4,10 +4,10 @@
       img-top
       :title="blog.title"
       class="cc-preview"
-      @click="$router.push('blog/' + blog.id)"
+      @click="push"
+      :class="{placeholder: !blog.id}"
       >
-      <p class="card-text">
-        {{blog.previewText}}
+      <p class="card-text" v-html="previewText">
       </p>
     </b-card>
 </template>
@@ -22,9 +22,15 @@
     methods: {
       loaded() {
         this.imageLoaded = true
+      },
+      push() {
+        this.blog.id ?  this.$router.push('blog/' + this.blog.id) : ''
       }
     },
     computed: {
+      previewText() {
+        return this.blog.id ? this.blog.previewText : `<i class="fa fa-spin fa-spinner" aria-hidden="true"></i>`
+      },
       image() {
         if (this.blog.image) {
           if (this.imageLoaded || !this.lazy) {

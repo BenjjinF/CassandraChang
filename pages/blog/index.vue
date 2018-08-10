@@ -21,7 +21,7 @@
     },
     beforeCreate() {
       let blogData = this.$store.state.pages.blog.data
-      if (!blogData.length) {
+      if (!blogData[0].id) {
         this.$storyapi.get(
           'cdn/stories', {
             version: process.env.NODE_ENV == 'production' ? 'published' : 'draft',

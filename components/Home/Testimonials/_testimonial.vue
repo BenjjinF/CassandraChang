@@ -2,7 +2,7 @@
   <div class="testimonial col-sm-6 my-3">
     <div class="speech-bubble" :class="direction">
         <p>{{ testimonial.quote }}</p>
-        <p class="text-muted"><em class="text-muted">~ {{ testimonial.name }}</em></p>
+        <p class="text-muted"><em class="text-muted" v-html="name"></em></p>
     </div>
   </div>
 </template>
@@ -16,7 +16,14 @@
         } else {
           return 'left'
         }
-      }
+			},
+			name() {
+				if (this.testimonial._uid) {
+					return '~ ' + this.testimonial.name
+				} else {
+					return `<i class="fa fa-spin fa-spinner" aria-hidden="true"></i>`
+				}
+			}
     }
   }
 </script>
