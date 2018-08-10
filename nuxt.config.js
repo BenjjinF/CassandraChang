@@ -108,37 +108,37 @@ module.exports = {
     }],
     ['bootstrap-vue/nuxt', { css: false }],
   ],
-  generate: {
-    routes: async () => {
+  // generate: {
+  //   routes: async () => {
 
-      const blogData = await axios.get(
-        "https://api.storyblok.com/v1/cdn/stories?version=published&token=" + credentials.storyblok.production + "&starts_with=blog&cv=" +
-          Math.floor(Date.now() / 1e3)
-      )
-      const blog = blogData.data.stories.map(p => p.full_slug)
+  //     const blogData = await axios.get(
+  //       "https://api.storyblok.com/v1/cdn/stories?version=published&token=" + credentials.storyblok.production + "&starts_with=blog&cv=" +
+  //         Math.floor(Date.now() / 1e3)
+  //     )
+  //     const blog = blogData.data.stories.map(p => p.full_slug)
 
-      const propertiesData = await axios.get(
-        "https://api.storyblok.com/v1/cdn/stories?version=published&token=" + credentials.storyblok.production + "&starts_with=properties&cv=" +
-          Math.floor(Date.now() / 1e3)
-      )
-      const properties = propertiesData.data.stories.map(p => p.full_slug)
+  //     const propertiesData = await axios.get(
+  //       "https://api.storyblok.com/v1/cdn/stories?version=published&token=" + credentials.storyblok.production + "&starts_with=properties&cv=" +
+  //         Math.floor(Date.now() / 1e3)
+  //     )
+  //     const properties = propertiesData.data.stories.map(p => p.full_slug)
 
-      const adviceData = await axios.get(
-        "https://api.storyblok.com/v1/cdn/stories?version=published&token=" + credentials.storyblok.production + "&starts_with=advice&cv=" +
-          Math.floor(Date.now() / 1e3)
-      )
-      const advice = adviceData.data.stories.map(p => p.full_slug)
+  //     const adviceData = await axios.get(
+  //       "https://api.storyblok.com/v1/cdn/stories?version=published&token=" + credentials.storyblok.production + "&starts_with=advice&cv=" +
+  //         Math.floor(Date.now() / 1e3)
+  //     )
+  //     const advice = adviceData.data.stories.map(p => p.full_slug)
 
-      return [
-        '/',
-        '/blog',
-        '/contact',
-        '/about',
-        '/homeEvaluation',
-        ...blog,
-        ...properties,
-        ...advice
-      ]
-    }
-  },
+  //     return [
+  //       '/',
+  //       '/blog',
+  //       '/contact',
+  //       '/about',
+  //       '/homeEvaluation',
+  //       ...blog,
+  //       ...properties,
+  //       ...advice
+  //     ]
+  //   }
+  // },
 }
